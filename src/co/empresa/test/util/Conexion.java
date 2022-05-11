@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Conexion {
+	private static Conexion db;
 	private Connection con = null;
 	private PreparedStatement preparedStatement;
 	
@@ -37,6 +38,13 @@ public class Conexion {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+	}
+	
+	public static Conexion getConexion() {
+		if(db == null) {
+			db = new Conexion();
+		}
+		return db;
 	}
 	
 	public ResultSet query () throws SQLException{
