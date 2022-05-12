@@ -23,7 +23,7 @@ public class UsuarioDao {
 		this.conexion = Conexion.getConexion();
 	}
 
-	public void insert(Usuario usuario) {
+	public void insert(Usuario usuario) throws SQLException {
 		try {
 			PreparedStatement preparedStatement = conexion.setPreparedStatement(INSERT_USUARIO_SQL);
 			preparedStatement.setString(1, usuario.getNombre());
@@ -36,7 +36,7 @@ public class UsuarioDao {
 		}
 	}
 	
-	public void delete(int id) {
+	public void delete(int id) throws SQLException{
 		try {
 			PreparedStatement preparedStatement = conexion.setPreparedStatement(DELETE_USUARIO_SQL);
 			preparedStatement.setInt(1, id);
@@ -47,7 +47,7 @@ public class UsuarioDao {
 		}
 	}
 	
-	public void update(Usuario usuario) {
+	public void update(Usuario usuario) throws SQLException{
 		try {
 			PreparedStatement preparedStatement = conexion.setPreparedStatement(UPDATE_USUARIO_SQL);
 			preparedStatement.setString(1, usuario.getNombre());
