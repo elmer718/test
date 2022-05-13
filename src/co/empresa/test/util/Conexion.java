@@ -11,7 +11,7 @@ public class Conexion {
 	private Connection con = null;
 	private PreparedStatement preparedStatement;
 	
-	private static final String url = "jdbc:mysql://localhost:3306";
+	private static final String url = "jdbc:mysql://localhost:3306/";
 	private static final String dbName = "sistema";
 	private static final String driver = "com.mysql.jdbc.Driver";
 	private static final String userName = "root";
@@ -20,7 +20,7 @@ public class Conexion {
 	public Conexion() {
 		try {
 			Class.forName(driver).newInstance();
-			con = (Connection)DriverManager.getConnection(url+dbName+userName+password);
+			con = (Connection)DriverManager.getConnection(url+dbName,userName,password);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException
 				| SQLException e) {
 			// TODO: handle exception
