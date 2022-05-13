@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.empresa.test.dao.UsuarioDao;
+import co.empresa.test.dao.UsuarioDaoMySQL;
+import co.empresa.test.dao.UsuarioDaoPostgreSQL;
 import co.empresa.test.modelo.Usuario;
 
 /**
@@ -37,7 +39,7 @@ public class UsuarioServlet extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
-		this.usuarioDao = new UsuarioDao();
+		this.usuarioDao = new UsuarioDaoPostgreSQL();
 	}
 
 	/**
